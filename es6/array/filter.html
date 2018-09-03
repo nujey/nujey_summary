@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>filter</title>
+</head>
+<body>
+  <h3>filter----我们使用vue.js 方便在页面查看结果</h3>
+  <div class="array">
+    {{testFilter}} -- filter
+    <hr/>
+    {{testEntries}} -- entries
+    <hr/>
+    {{testKeys}} -- keys
+    <hr />
+    {{testValues}} -- values
+  </div>
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <script>
+    var app = new Vue({
+      el: '.array',
+      data() {
+        return {
+          test: '111',
+          testArray: [{
+            id: 1,
+            name: '第一个名字'
+          }, {
+            id: 2,
+            name: '第二个名字'
+          }]
+        }
+      },
+      computed: {
+        testFilter() {
+          let res
+          this.testArray.filter(item => {
+            if (item.id === 1) {
+              res =  item.name
+            }
+          })
+          return res
+        },
+        testEntries() {
+          let res
+          for(const [index, item] of this.testArray.entries()) {
+            if(index === 1) {
+              res = this.testArray[index].name
+            }
+          }
+          return res
+        },
+        testKeys() {
+          let keys
+          for(const index of this.testArray.keys()) {
+            if (index === 0) {
+              res = index
+            }
+          }
+          return res
+        },
+        testValues() {
+          let res
+          for (const item of this.testArray.values()) {
+            if (item.id === 2) {
+              res = item.name + '=====>values'
+            }
+          }
+          return res
+        }
+      }
+    })
+  </script>
+</body>
+</html>
