@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>reduce</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+</head>
+<body>
+  <div class="reduce">
+    {{age}}
+  </div>
+  <script>
+    var app = new Vue({
+      el: '.reduce',
+      data() {
+        return {
+          test: '111',
+          student: {
+            name: '111'
+          },
+          reduceArray: ['test1', 'test2', 'test3', 'test2', 'test3']
+        }
+      },
+      created() {
+        this.test = this.reduceArray.reduce((accumulator, currentValue) => {
+          if (currentValue in accumulator) {
+            accumulator[currentValue] ++
+          } else {
+            accumulator[currentValue] = 1
+          }
+          return accumulator
+        }, {})
+        let temp = this.reduceArray.sort().reduce((pre, currentVal, i) => {
+          if (pre.length === 0 || pre[pre.length - 1] !== currentVal) {
+            pre.push(currentVal)
+          }
+          return pre
+        }, [])
+        console.log(temp)
+        // this.student.age = 20
+        this.$set(this.student, 'age', temp)
+      }
+    })
+  </script>
+</body>
+</html>

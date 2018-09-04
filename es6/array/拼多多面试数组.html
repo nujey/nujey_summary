@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>reduce</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+</head>
+<body>
+  <div class="reduce">
+    <!-- {{age}} -->
+  </div>
+  <script>
+    var app = new Vue({
+      el: '.reduce',
+      data() {
+        return {
+          test: '111',
+          student: {
+            name: '111'
+          },
+          reduceArray: [{ id: 2, parent: 1 }, { id: 1, parent: null }, { id: 3, parent: 2 }]
+        }
+      },
+      created() {
+        let obj = this.reduceArray.reduce((pre, currentVal, index, arr) => {
+          // console.log(pre.length)
+          // if (pre.length) {
+            
+          //   // pre['id'] = currentVal.id
+          //   // pre['parent'] = null
+          // } else {
+          //   // pre['child']['id'] = currentVal.id
+          //   // pre['child']['parent'] = arr[index -1].id
+          // }
+          // pre.push(currentVal)
+          return pre
+        }, [])
+        console.log(obj)
+      }
+    })
+  </script>
+</body>
+</html>
