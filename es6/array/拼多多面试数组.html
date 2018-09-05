@@ -20,24 +20,45 @@
           student: {
             name: '111'
           },
-          reduceArray: [{ id: 2, parent: 1 }, { id: 1, parent: null }, { id: 3, parent: 2 }]
+          reduceArray1: [{ id: 2, parent: 1 }, { id: 1, parent: null }, { id: 3, parent: 2 }],
+          reduceArray: [{ id: 1, parent: null }, { id: 2, parent: 1 }, { id: 3, parent: 2 }]
         }
       },
       created() {
-        let obj = this.reduceArray.reduce((pre, currentVal, index, arr) => {
-          // console.log(pre.length)
-          // if (pre.length) {
-            
-          //   // pre['id'] = currentVal.id
-          //   // pre['parent'] = null
-          // } else {
-          //   // pre['child']['id'] = currentVal.id
-          //   // pre['child']['parent'] = arr[index -1].id
-          // }
-          // pre.push(currentVal)
-          return pre
-        }, [])
-        console.log(obj)
+        // let obj = this.reduceArray.reduce((pre, currentVal, index, arr) => {
+        //   // console.log(pre, currentVal)
+        //   if (!pre.child && pre.id === currentVal.parent) {
+        //     pre.child = currentVal
+        //   } else if (pre.child.id == currentVal.parent){
+        //     pre.child.child = currentVal
+        //   }
+        //   return pre
+        // }, this.reduceArray[0])
+        // console.log(obj)
+        let pre = {}
+        this.tree().then(res => {
+          this.tree(res)
+          console.log(res)
+        })
+      },
+      methods: {
+        tree: function(pre) {
+          return new Promise((resolve) => {
+            this.reduceArray.forEach(element => {
+              if (!pre.child && element.parent === null) {
+                pre = element
+                pre.child = {}
+                resolve(pre)
+              } else if (pre.id === element.parent){
+                pre.child = element
+                resolve(pre.child)
+              }
+            })
+          })
+        }
+      },
+      arrayIf: function() {
+        
       }
     })
   </script>
