@@ -8,10 +8,35 @@
   <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <p>{{test}}</p>
+
+
+
+    <!-- <div v-if="true">我是一个当v-if条件为true的时候显示的div</div>
+    <div v-show="false">我是一个当v-show条件为true的时候显示的div</div>
+
+
+
+    <div v-if="dataTest === '1'">我是一个当v-if条件为true的时候显示的div</div>
+    <div v-if="dataTest === '3'">我是一个当v-show条件为true的时候显示的div</div> -->
+
+
+    <input type="text" v-model="modelData">
+    <p>我是一个输入框的默认值{{modelData}}</p>
+
+
+
+    <img :src="dataSrc" alt="">
+  </div>
   <script>
     var app = new Vue({
-      el: "#app"
+      el: "#app",
+      data() {
+        return {
+          dataSrc: 'http://baidu.tupian.lababalabala.png'
+        }
+      }
     })
   </script>
 </body>
