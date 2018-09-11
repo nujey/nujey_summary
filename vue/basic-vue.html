@@ -28,13 +28,23 @@
 
 
     <img :src="dataSrc" alt="">
+
+
+
+    <div v-text="vText"></div>
+    <div v-html="vHtml"></div>
+
+    <ul>
+      <li v-for="item in list"></li>
+    </ul>
   </div>
   <script>
     var app = new Vue({
       el: "#app",
       data() {
         return {
-          dataSrc: 'http://baidu.tupian.lababalabala.png'
+          vText: "<b style='color:red;'>我是v-text的文本</b>",
+          vHtml: "<b style='color:red;'>我是v-html的文本</b>"
         }
       }
     })
