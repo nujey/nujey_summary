@@ -9,7 +9,7 @@
 </head>
 <body>
   <div id="app">
-    <p>{{test}}</p>
+    <!-- <p>{{test}}</p> -->
 
 
 
@@ -22,31 +22,62 @@
     <div v-if="dataTest === '3'">我是一个当v-show条件为true的时候显示的div</div> -->
 
 
-    <input type="text" v-model="modelData">
-    <p>我是一个输入框的默认值{{modelData}}</p>
+    <!-- <input type="text" v-model="modelData"> -->
+    <!-- <p>我是一个输入框的默认值{{modelData}}</p> -->
 
 
 
-    <img :src="dataSrc" alt="">
+    <!-- <img :src="dataSrc" alt=""> -->
 
 
 
-    <div v-text="vText"></div>
-    <div v-html="vHtml"></div>
+    <!-- <div v-text="vText"></div> -->
+    <!-- <div v-html="vHtml"></div> -->
 
     <ul>
-      <li v-for="item in list"></li>
+      <!-- <li v-for="(item, index) in list">{{item}} - {{index}}</li> -->
     </ul>
+
+    <p v-for="(value, key, index) in obj" :key="index">{{index}}~{{key}}~{{value}}</p>
   </div>
   <script>
     var app = new Vue({
       el: "#app",
       data() {
         return {
-          vText: "<b style='color:red;'>我是v-text的文本</b>",
-          vHtml: "<b style='color:red;'>我是v-html的文本</b>"
+          obj: {
+            name: 'CC',
+            age: 18,
+            hobby: '撩妹'
+          }
         }
-      }
+      },
+      beforeCreate() {
+        console.log(this, 1) // 吧啦吧啦吧啦一串
+      },
+      created() {
+        this.obj.name = 'CC是个小可爱'
+        console.log(this.obj.name, 2) // 吧啦吧啦吧啦一串
+      },
+      beforeMount() {
+        console.log(this.obj.name, 3) // 吧啦吧啦吧啦一串
+      },
+      mounted() {
+        this.obj.name = '闪电16岁'
+        console.log(4) // 吧啦吧啦吧啦一串
+      },
+      beforeUpdate() {
+        console.log(5) // 吧啦吧啦吧啦一串
+      },
+      updated() {
+        console.log(6) // 吧啦吧啦吧啦一串
+      },
+      beforeDestroy() {
+        console.log(7) // 吧啦吧啦吧啦一串
+      },
+      destroyed() {
+        console.log(8) // 吧啦吧啦吧啦一串
+      },
     })
   </script>
 </body>
