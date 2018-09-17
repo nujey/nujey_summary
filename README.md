@@ -10,3 +10,6 @@
 ### vue文件夹对应的vue博客文章
    1. [第一篇 vue入门之基础语法(一)——创建实例和简单指令](http://blog.restartai.com/2018/09/vue-create-instance/)
    2. [第二篇 vue入门之基础语法(一)——生命周期和指令](http://blog.restartai.com/2018/09/vue-directive/)
+
+### 关于数组去重的一点小东西(es6/array/removeEqual.js)
+   1. [关于数组去重的一点小久久](http://blog.restartai.com/2018/09/js-array/#more-268)
