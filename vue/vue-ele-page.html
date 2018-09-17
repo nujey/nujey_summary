@@ -38,11 +38,11 @@
       },
       methods: {
         handleSizeChange: function(val) {
-          console.log(val, 1)
+          console.log(val, this.pageInfo.pagesize, 1)
         },
         handleCurrentChange: function(val) {
-          console.log(val, 2)
-        }
+          console.log(val, this.pageInfo.currentPage, 2)
+        },
       }
     })
   </script>
