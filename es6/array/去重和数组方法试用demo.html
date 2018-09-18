@@ -12,12 +12,14 @@
   <script>
     var list = [{id: 1, name: '第一名'}, 
                 {id: 2, name: '第二名'}, 
-                {id: 3, name: '第三名'},
-                {id: 1, name: '第二名'},
-                {id: 2, name: '第三名'},
-                {id: 3, name: '第二名'}]
+                {id: 3, name: '第三名'}]
     new removeequal().mapTest2(list, 'name') // 数组去重的方法
-    new ArrayFun() // 数组操作的方法集合
+    // new ArrayFun().arrPop(list, {id: 4, name: '第四名'}) // 数组操作的方法集合
+    const arrayFun = new ArrayFun()
+    // arrayFun.arrPop(list)
+    arrayFun.arrPush(list, {id: 4, name: '第四名'})
+    var arr1 = arrayFun.arrFrom("{id: 5, name: '第五名'}, {id: 5, name: '第五名'}")
+    console.log(arr1)
   </script>
 </body>
 </html>
