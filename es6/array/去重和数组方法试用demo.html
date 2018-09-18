@@ -19,7 +19,9 @@
     // arrayFun.arrPop(list)
     arrayFun.arrPush(list, {id: 4, name: '第四名'})
     var arr1 = arrayFun.arrFrom("{id: 5, name: '第五名'}, {id: 5, name: '第五名'}")
-    console.log(arr1)
+    const arrof = arrayFun.arrOf(7)
+    const concat = arrayFun.arrConcat(arrof, [1,2,3,4,5])
+    console.log(concat)
   </script>
 </body>
 </html>

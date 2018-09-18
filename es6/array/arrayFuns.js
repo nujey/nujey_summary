@@ -14,4 +14,12 @@ class ArrayFun {
   arrFrom(item) {
     return Array.from(item)
   }
+  arrOf(n) {
+    // return Array.of(n)
+    console.log(arguments)
+    return Array.prototype.slice.call(arguments)
+  }
+  arrConcat(arr1, arr2) {
+    return arr1.concat(arr2)
+  }
 }
