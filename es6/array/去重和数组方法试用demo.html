@@ -8,15 +8,16 @@
 </head>
 <body>
   <script src="./removeEqual.js"></script>
+  <script src="./arrayFuns.js"></script>
   <script>
-    // import { simpleEqual } from './removeEqual.js'
     var list = [{id: 1, name: '第一名'}, 
                 {id: 2, name: '第二名'}, 
                 {id: 3, name: '第三名'},
                 {id: 1, name: '第二名'},
                 {id: 2, name: '第三名'},
                 {id: 3, name: '第二名'}]
-    console.log(new removeequal().mapTest2(list, 'name'))
+    new removeequal().mapTest2(list, 'name') // 数组去重的方法
+    new ArrayFun() // 数组操作的方法集合
   </script>
 </body>
 </html>

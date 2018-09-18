@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <login-input 
+        :list="listData"></login-input>
+  </div>
+  <script>
+    // 在单页面中，比如头部和尾部需要用到登陆的输入框，就可以在这个页面内部注册一下
+    Vue.component('login-input', {
+      props: {
+        name: {
+          type: String,
+          default: '姓名'
+        },
+        list: {
+          type: Array,
+          default: []
+        }
+      },
+      template: `<div>
+                    <span v-for="item in list">{{item.id}}~{{item.name}}</span>
+                 </div>`
+    })
+    // 创建Vue实例
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          listData: [{id: 1, name: '第一名'}, {id: 2, name: '第二名'}, {id: 3, name: '第三名'}]
+        }
+      }
+    })   
+  </script>
+</body>
+</html>
