@@ -13,3 +13,4 @@
 
 ### 关于数组去重的一点小东西(es6/array/removeEqual.js)
    1. [关于数组去重的一点小久久](http://blog.restartai.com/2018/09/js-array/#more-268)
+   2. [关于数组的操作的方法集合](https://github.com/nujey/nujey_summary/blob/master/es6/array/arr-demo.html)
