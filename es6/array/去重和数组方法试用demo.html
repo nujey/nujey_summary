@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>array</title>
 </head>
 <body>
   <script src="./removeEqual.js"></script>
@@ -14,14 +14,63 @@
                 {id: 2, name: '第二名'}, 
                 {id: 3, name: '第三名'}]
     new removeequal().mapTest2(list, 'name') // 数组去重的方法
-    // new ArrayFun().arrPop(list, {id: 4, name: '第四名'}) // 数组操作的方法集合
     const arrayFun = new ArrayFun()
-    // arrayFun.arrPop(list)
     arrayFun.arrPush(list, {id: 4, name: '第四名'})
     var arr1 = arrayFun.arrFrom("{id: 5, name: '第五名'}, {id: 5, name: '第五名'}")
     const arrof = arrayFun.arrOf(7)
     const concat = arrayFun.arrConcat(arrof, [1,2,3,4,5])
     console.log(concat)
+
+    // 这些方法会改变数组的本身的值
+    var arr = [1, 2, 3, 4, 5]
+    arr.copyWithin(2) // [1, 2, 1, 2, 3]
+    arr.copyWithin(-2) // [1, 2, 3, 1, 2]
+    arr.copyWithin(2, 4) // [1, 2, 5, 1, 2]
+    arr.copyWithin(-4, 4, 5) // 【1, 5, 3, 4, 5】
+    
+    arr.fill(0) // [0, 0, 0, 0, 0]
+    arr.fill(9, 2, 4) // [1, 2, 9, 9, 9]
+    
+    // 实际上，这几个方法的返回值 只是单个元素 而不是整个数组 追过整个数组被改变了而已
+    arr.push(1)
+    arr.pop(1)
+    arr.shift(999)
+    arr.unshift(999)
+
+    arr.reverse() // [5, 4, 3, 2, 1]
+    var obj = [{id: 1}, {id: 2}]
+    arr.splice(2, 1, ...obj)
+
+
+    //  下面的方法只访问原有数组 但是不会改变原来的值 而是返回一个新的数组或者值
+    var t = [1, 2, 3]
+    var newt = t.concat([4]) // [1, 2, 3, 4] 返回新数组newt
+
+    var t1 = t.includes(2) // true 返回是否包含指定值
+
+    var str1 = t.join('-') // '1-2-3'
+    var str2 = [{id: 1}, {id: 2}].join('-') // [object Object]-[object Object] 不推荐这么操作咯
+
+    var str3 = t.toString() // '1,2,3'
+
+    var index = t.indexOf(2) // 返回第一个索引值的位置
+
+    var lastIndex = [1, 2, 2, 3].lastIndexOf(2) // 2 返回最后一个索引值的位置
+
+
+    // 循环数组的方法
+    var eachArr = [1, 2, 3]
+    eachArr.forEach((item, index, arr) => {
+      console.log(arr)
+    })
+
+    const iterator1 = eachArr.entries()
+    const iterator2 = eachArr.keys()
+    const iterator3 = eachArr.values()
+    // for(let e of iterator) {
+    //   console.log(e)
+    // }
+    console.log(iterator.next().value, iterator.next().key)
   </script>
 </body>
 </html>
