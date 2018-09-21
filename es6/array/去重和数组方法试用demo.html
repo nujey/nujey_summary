@@ -70,7 +70,19 @@
     // for(let e of iterator) {
     //   console.log(e)
     // }
-    console.log(iterator.next().value, iterator.next().key)
+    // console.log(iterator.next().value)
+
+    var arrevery = eachArr.every((item, index, arr) => {
+      return item > 0
+    }) // every的每一个元素都经过测试函数 最后返回true false
+    var arrsome = [{id: 1}, {id: 2}].some((item, index, arr) => {
+      return item.id === 2
+    }) // some 来检测某些元素是否符合回调函数 最后返回true false
+    var arrFilter = [{id: 1}, {id: 2}].filter(item => item.id === 1) // 返回filter回调函数中符合条件true的元素
+    var arrFind = [{id: 1}, {id: 2}].find(item => item.id === 2) // 返回第一个符合条件的元素
+    var arrFindIndex = [{id: 1}, {id: 2}].findIndex(item => item.id === 2)
+    // filter 和 find 都会对数组进行循环 find是找到一个就返回 filter是遍历了数组所有的元素 性能可想而知
+    console.log(arrFindIndex, 222)
   </script>
 </body>
 </html>
