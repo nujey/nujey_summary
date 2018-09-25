@@ -30,10 +30,13 @@
     var app = new Vue({
       router,
       el: "#app",
-      data() {
-        return {
-
+      watch: {
+        '$route'(to, from) {
+          console.log(to, from)
         }
+      },
+      created() {
+        console.log(111)
       }
     })
   </script>
