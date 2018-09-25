@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue-router</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h2>hello! vue App!</h2>
+    <router-link to="/foo">foo</router-link>
+    <router-link to="/baz">baz</router-link>
+    <router-view></router-view>
+  </div>
+  <script>
+    const foo = { template: '<div>foo</div>'}
+    const baz = { template: '<div>baz</div>'}
+
+    const routes = [
+      { path: '/foo', component: foo },
+      { path: '/baz', component: baz }
+    ]
+    const router = new VueRouter({
+      routes,
+      // mode: 'history'
+    })
+    var app = new Vue({
+      router,
+      el: "#app",
+      data() {
+        return {
+
+        }
+      }
+    })
+  </script>
+</body>
+</html>
