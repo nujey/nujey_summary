@@ -33,6 +33,9 @@
         }
       },
       created() {
+        const x = {a: 1, b: 2}
+        const {a, b: B} = x
+        console.log(a, B, 111)
         let tempArr = []
         this.testList.map((x) => {
           const { age, id: ID, name: title } = x
