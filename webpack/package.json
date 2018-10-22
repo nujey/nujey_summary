@@ -1,9 +1,10 @@
 {
   "name": "webpack",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "webapck练习",
+  "private": true,
   "dependencies": {
+    "lodash": "^4.17.11",
     "webpack": "^4.22.0"
   },
   "devDependencies": {
