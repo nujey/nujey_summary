@@ -1,4 +1,6 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -32,5 +34,11 @@ module.exports = {
         use: [ 'xml-loader' ]
       }
     ]
-  }
+  },
+  plugins: [
+    new CleanWebpackPlugin(['dist', 'dist2']),
+    new HtmlWebpackPlugin({
+      title: 'Output Management'
+    })
+  ]
 }
