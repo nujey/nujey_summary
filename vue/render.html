@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .test-jq {
+      width: 100px; height: 100px; background: #000; text-align: center; line-height: 100px; color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-jq">111</div>
+  <!-- <script src="https://www.jq22.com/jquery/jquery-2.1.1.js"></script> -->
+  <script>
+    var script = document.createElement('script')
+    script.type="text/javascript"
+    script.src="https://www.jq22.com/jquery/jquery-2.1.1.js"
+    document.body.appendChild(script)
+  </script>
+  <script>
+    script.onload = function() {
+      // console.log(2222, $)
+      $(".test-jq").on('click', function() {
+        alert(1)
+      })
+    }
+  </script>
+</body>
+</html>
