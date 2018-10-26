@@ -38,7 +38,30 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist', 'dist2']),
     new HtmlWebpackPlugin({
-      title: 'Output Management'
+      title: 'first-html',
+      filename: 'index.html',
+      template: 'src/index.html',
+      inject: 'head',
+      hash: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+      chunks: ['app']
+    }, {title: '第一个'}),
+    new HtmlWebpackPlugin({
+      title: 'second-html',
+      filename: 'second-index.html',
+      template: 'src/second-index.html',
+      inject: true || 'body',
+      hash: false,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+      chunks: ['print']
     })
   ]
 }
