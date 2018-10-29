@@ -1,18 +1,20 @@
 import _ from 'lodash'
+import printMe from './print'
+import './style.css'
 // import './style.css'
 // import loginIcon from './image/login.jpg'
 // import data from './data.xml'
 
 function component() {
-  // var element = document.createElement('div')
-  // var btn = document.createElement('button')
+  var element = document.createElement('div')
+  var btn = document.createElement('button')
 
-  // element.innerHTML = _.join(['Hello', 'webpack'], '~')
+  element.innerHTML = _.join(['Hello', 'webpack'], '~')
   // element.classList.add('hello')
 
-  // btn.innerHTML = '点击我print'
-  // btn.onclick = printMe
-  // element.appendChild(btn)
+  btn.innerHTML = '点击我print'
+  btn.onclick = printMe
+  element.appendChild(btn)
 
   // let myHeader = new Image()
   // myHeader.src = loginIcon
@@ -21,4 +23,12 @@ function component() {
   return element
 }
 
-// document.body.appendChild(component())
+document.body.appendChild(component())
+
+
+if(module.hot) {
+  module.hot.accept('./print.js', function() {
+    console.log('accepting the updated printMe module!');
+    printMe();
+  })
+}

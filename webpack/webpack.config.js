@@ -1,11 +1,12 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const webapck = require('webpack')
 
 module.exports = {
   entry: {
     app: './src/index.js',
-    print: './src/print.js'
+    // print: './src/print.js'
   },
   output: {
     filename: '[name].bundle.js',
@@ -38,7 +39,8 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    hot: true
   },
   plugins: [
     new CleanWebpackPlugin(['dist', 'dist2']),
@@ -46,7 +48,7 @@ module.exports = {
       title: 'first-html',
       filename: 'index.html',
       template: 'src/index.html',
-      inject: 'head',
+      inject: true,
       hash: true,
       minify: {
         removeComments: true,
@@ -55,18 +57,20 @@ module.exports = {
       },
       chunks: ['app']
     }, {title: '第一个'}),
-    new HtmlWebpackPlugin({
-      title: 'second-html',
-      filename: 'second-index.html',
-      template: 'src/second-index.html',
-      inject: true || 'body',
-      hash: false,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      },
-      chunks: ['print']
-    })
+    new webapck.NamedModulesPlugin(),
+    new webapck.HotModuleReplacementPlugin()
+    // new HtmlWebpackPlugin({
+    //   title: 'second-html',
+    //   filename: 'second-index.html',
+    //   template: 'src/second-index.html',
+    //   inject: true || 'body',
+    //   hash: false,
+    //   minify: {
+    //     removeComments: true,
+    //     collapseWhitespace: true,
+    //     removeAttributeQuotes: true
+    //   },
+    //   chunks: ['print']
+    // })
   ]
 }
