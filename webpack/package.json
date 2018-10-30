@@ -4,6 +4,13 @@
   "description": "webapck练习",
   "private": true,
   "sideEffects": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "koa-server": "node koa-server.js",
+    "express-server": "node express-server.js"
+  },
   "dependencies": {
     "lodash": "^4.17.11",
     "webpack": "^4.22.0"
@@ -18,18 +25,12 @@
     "koa": "^2.6.1",
     "koa-static": "^5.0.0",
     "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "^4.1.4",
     "xml-loader": "^1.2.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
-    "build": "webpack",
-    "dev": "webpack-dev-server --open",
-    "koa-server": "node koa-server.js",
-    "express-server": "node express-server.js"
   },
   "keywords": [],
   "author": "",
