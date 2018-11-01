@@ -11,10 +11,13 @@ function component() {
   // var btn = document.createElement('button')
   
   element.innerHTML = _.join(['Hello webpack', '5 cubed is equal to' + cube(5)], '~')
-  // element.classList.add('hello')
+  // // element.classList.add('hello')
 
   // btn.innerHTML = '点击我print'
-  // btn.onclick = printMe
+  // btn.onclick = e => import(/* webpackChunkname: "print" */ './print').then(module => {
+  //   var print = module.default;
+  //   print();
+  // })
   // element.appendChild(btn)
 
   // let myHeader = new Image()

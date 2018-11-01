@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
@@ -34,6 +34,11 @@ module.exports = {
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: 'common'
     // })
+    // 就像我们之前从代码分离了解到的，CommonsChunkPlugin 可以用于将模块分离到单独的文件中。
+    // 然而 CommonsChunkPlugin 有一个较少有人知道的功能是，能够在每次修改后的构建结果中，
+    // 将 webpack 的样板(boilerplate)和 manifest 提取出来。
+    // 通过指定 entry 配置中未用到的名称，此插件会自动将我们需要的内容提取到单独的包中：
+    
   ],
   optimization: {
     splitChunks: {
