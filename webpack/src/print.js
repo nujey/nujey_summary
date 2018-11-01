@@ -12,6 +12,6 @@ export default function printMe () {
 // }
 
 // document.body.appendChild(component())
-export default () => {
-  console.log(cube(5))
-}
+// export default () => {
+//   console.log(cube(5))
+// }
