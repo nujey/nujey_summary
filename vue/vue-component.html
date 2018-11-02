@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue-router</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h2>hello! vue App!异步组件的使用</h2>
+    <div>
+      <button v-for="(item, index) in btns" @click="currentTab = item.id">{{item.name}}</button>
+      <keep-alive>
+        <component :is="currentTabComponent"></component>
+      </keep-alive>
+    </div>
+  </div>
+  <script>
+    Vue.component('tab-0', { 
+  data: function () {
+  	return {
+      selectedPost: null
+    }
+  },
+	template: `
+  	<div class="posts-tab">
+      111
+    </div>
+  `
+})
+    Vue.component('tab-1', { 
+      template: '<div>Archive component</div>' 
+    })
+    Vue.component('tab-2', function(resolve, reject) {
+      setTimeout(function() {
+        resolve({
+          template: `<div>tab3 component</div>`
+        })
+      }, 2000)
+    })
+    var app = new Vue({
+      el: "#app",
+      data() {
+        return {
+          currentTab: '1',
+          btns: [{name: '第一个', id: '0'}, {name: '第二个', id: '1'}, {name: '第三个', id: '2'},]
+        }
+      },
+      computed: {
+        currentTabComponent: function() {
+          return 'tab-' + this.currentTab 
+        }
+      },
+      created() {
+        console.log(111)
+      }
+    })
+  </script>
+</body>
+</html>
