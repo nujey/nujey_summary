@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import numRef from './ref.json'
 // import printMe from './print'
 // import './style.css'
 import { cube } from './main';
@@ -29,10 +30,14 @@ function component() {
 
 document.body.appendChild(component())
 
+export function numToWord(num) {
+  return _.reduce(numRef, (accum, ref) => {
+    return ref.num === num ? ref.word : accum
+  }, '')
+}
 
-// if(module.hot) {
-//   module.hot.accept('./print.js', function() {
-//     console.log('accepting the updated printMe module!');
-//     printMe();
-//   })
-// }
+export function wordToNum(word) {
+  return _.reduce(numRef, (accum, ref) => {
+    return ref.word === word && word.toLowercase() ? ref.num : accum
+  }, -1)
+}
