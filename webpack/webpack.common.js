@@ -47,7 +47,7 @@ module.exports = {
         vendor: {
           name: 'vendor',
           chunks: "all",
-          minChunks: 2
+          minChunks: Infinity
         }
       }
     }
